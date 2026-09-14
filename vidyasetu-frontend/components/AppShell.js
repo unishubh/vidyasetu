@@ -128,7 +128,7 @@ export default function AppShell({ children }) {
                   </span>
                 </div>
                 <span className="hidden text-[11px] text-slate-500 md:block">
-                  Exam catalog, paid sections, and review flow
+                  India&apos;s premier competitive &amp; NISM exam prep platform
                 </span>
               </div>
             </Link>
@@ -264,15 +264,15 @@ export default function AppShell({ children }) {
       </main>
 
       {/* Footer */}
-      <footer className="mt-auto border-t border-slate-200/80 bg-white/60 py-6 text-center text-xs text-slate-500 backdrop-blur-sm">
+      <footer className="mt-auto border-t border-slate-200/80 bg-white/70 py-6 text-xs text-slate-500 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 sm:flex-row sm:px-6">
-          <p>© {new Date().getFullYear()} VidyaSetu LMS. Sleek edtech exam preparation platform.</p>
+          <p>© {new Date().getFullYear()} VidyaSetu LMS. High-fidelity exam simulations with real-time analytics.</p>
           <div className="flex items-center gap-4 text-slate-500">
-            <span>Adaptive Mocks</span>
+            <span>Adaptive Test Engine</span>
             <span>•</span>
-            <span>Passage Analysis</span>
+            <span>Sectional Drills</span>
             <span>•</span>
-            <span>Instant Solution Reviews</span>
+            <span>Step-by-Step Solutions</span>
           </div>
         </div>
       </footer>

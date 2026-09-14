@@ -10,12 +10,15 @@ import {
   Train,
   Award,
   BookOpen,
-  GraduationCap,
   Zap,
   Target,
-  FileText,
   TrendingUp,
   X,
+  CheckCircle2,
+  Clock,
+  BarChart3,
+  ShieldCheck,
+  Laptop,
 } from 'lucide-react';
 import api from '@/lib/api';
 import { getToken } from '@/lib/auth';
@@ -87,38 +90,38 @@ export default function HomePage() {
   }, [catalogs, searchQuery]);
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-12 pb-8">
       {/* Hero Banner / Section Header */}
-      <section className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white/90 p-8 shadow-panel backdrop-blur sm:p-10 lg:p-12">
+      <section className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white/95 p-8 shadow-panel backdrop-blur sm:p-10 lg:p-14">
         {/* Subtle Ambient Background Gradients */}
-        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-indigo-500/10 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-indigo-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
 
         <div className="relative z-10 max-w-4xl space-y-6">
           {/* Eyebrow Tag */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200/60 bg-indigo-50/80 px-3.5 py-1 text-xs font-semibold text-indigo-700 shadow-sm backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200/60 bg-indigo-50/90 px-3.5 py-1 text-xs font-semibold text-indigo-700 shadow-sm backdrop-blur-sm">
             <Sparkles className="h-3.5 w-3.5 text-indigo-600 animate-pulse" />
-            <span className="tracking-wide uppercase text-[11px]">Exam LMS • Catalog</span>
+            <span className="tracking-wide uppercase text-[11px]">VidyaSetu 2.0 • Precision Exam Engine</span>
           </div>
 
           {/* Headline */}
           <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-            Explore Exam Catalogs & <span className="text-indigo-600">Demo Drills</span>
+            Master Competitive Exams with <span className="text-indigo-600">Precision Mock Tests</span>
           </h1>
 
           {/* Subtext */}
-          <p className="max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
-            Access curated section-wise test series, study documents, video explanations,
-            and test your readiness with free demo tests before purchasing.
+          <p className="max-w-3xl text-base leading-relaxed text-slate-600 sm:text-lg">
+            Prepare with authentic exam simulations for NISM Certifications, Banking, SSC, and Railway exams.
+            Practice with free diagnostic demo tests, access curated study guides, and review step-by-step solution keys.
           </p>
 
           {/* Action Row & Live Search Bar */}
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center pt-2">
             <Link
               href={isLoggedIn ? '/dashboard' : '/login'}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-sm shadow-indigo-600/20 transition-all hover:bg-indigo-700 hover:shadow-indigo-600/30 hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-sm shadow-indigo-600/25 transition-all hover:bg-indigo-700 hover:shadow-indigo-600/35 hover:scale-[1.02] active:scale-[0.98]"
             >
-              <span>{isLoggedIn ? 'Open Student Home' : 'Login for Free Demos'}</span>
+              <span>{isLoggedIn ? 'Go to My Learning' : 'Start Free Demo Drills'}</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
 
@@ -131,8 +134,8 @@ export default function HomePage() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Filter exams (e.g. Banking, SSC, Railway)..."
-                className="w-full rounded-full border border-slate-200 bg-slate-50/80 py-2.5 pl-10 pr-10 text-sm text-slate-800 placeholder-slate-400 outline-none transition-all focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10"
+                placeholder="Search exams (e.g., NISM, Derivatives, Banking, SSC)..."
+                className="w-full rounded-full border border-slate-200 bg-slate-50/90 py-2.5 pl-10 pr-10 text-sm text-slate-800 placeholder-slate-400 outline-none transition-all focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10"
               />
               {searchQuery ? (
                 <button
@@ -145,6 +148,22 @@ export default function HomePage() {
                 </button>
               ) : null}
             </div>
+          </div>
+
+          {/* Trust Highlights */}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-xs font-medium text-slate-500">
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+              Real TCS iON Exam Interface
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+              Instant Score &amp; Negative Mark Analysis
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+              Comprehensive Solution Keys
+            </span>
           </div>
         </div>
       </section>
@@ -165,15 +184,20 @@ export default function HomePage() {
         </div>
       ) : null}
 
-      {/* Multi-column Catalog Grid Section (3 columns desktop, 1 mobile) */}
+      {/* Multi-column Catalog Grid Section */}
       {!loading && (
-        <section className="space-y-4">
+        <section className="space-y-5">
           <div className="flex items-center justify-between px-1">
-            <h2 className="text-lg font-bold tracking-tight text-slate-900">
-              Featured Exam Packages
-            </h2>
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-              {filteredCatalogs.length} {filteredCatalogs.length === 1 ? 'Package' : 'Packages'} Available
+            <div>
+              <h2 className="text-xl font-bold tracking-tight text-slate-900">
+                Featured Exam Test Series
+              </h2>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Handcrafted question banks aligned with current exam patterns and syllabi
+              </p>
+            </div>
+            <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
+              {filteredCatalogs.length} {filteredCatalogs.length === 1 ? 'Program' : 'Programs'}
             </span>
           </div>
 
@@ -196,17 +220,17 @@ export default function HomePage() {
                       </div>
                       <span className="rounded-full border border-indigo-100 bg-indigo-50 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-indigo-700">
                         {catalog.section_count}{' '}
-                        {catalog.section_count === 1 ? 'Section' : 'Sections'}
+                        {catalog.section_count === 1 ? 'Module' : 'Modules'}
                       </span>
                     </div>
 
                     {/* Header: Title */}
-                    <h3 className="mt-5 text-xl font-bold tracking-tight text-slate-900 transition-colors group-hover:text-indigo-600">
+                    <h3 className="mt-5 text-lg font-bold tracking-tight text-slate-900 transition-colors group-hover:text-indigo-600 sm:text-xl">
                       {catalog.title}
                     </h3>
 
                     {/* Description: Body Text */}
-                    <p className="mt-2.5 text-sm leading-relaxed text-slate-500 line-clamp-3">
+                    <p className="mt-2 text-sm leading-relaxed text-slate-500 line-clamp-3">
                       {catalog.description}
                     </p>
                   </div>
@@ -217,7 +241,7 @@ export default function HomePage() {
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-100 bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">
                         <Target className="h-3 w-3 text-emerald-600" />
-                        <span>{catalog.demo_test_count || 1} Demo Test</span>
+                        <span>Demo Available</span>
                       </span>
                       <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-100 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-800">
                         <Zap className="h-3 w-3 text-amber-600" />
@@ -228,10 +252,10 @@ export default function HomePage() {
                     {/* Action link with smooth hover arrow */}
                     <div className="flex items-center justify-between pt-1">
                       <span className="text-xs font-medium text-slate-400">
-                        Curated mock series
+                        Full test series
                       </span>
                       <div className="inline-flex items-center gap-1 text-sm font-semibold text-indigo-600 transition-all group-hover:text-indigo-700">
-                        <span>Explore Catalog</span>
+                        <span>View Program</span>
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1.5" />
                       </div>
                     </div>
@@ -246,23 +270,77 @@ export default function HomePage() {
             <div className="rounded-3xl border border-dashed border-slate-300 bg-white/70 p-12 text-center">
               <BookOpen className="mx-auto h-10 w-10 text-slate-400" />
               <h3 className="mt-3 text-base font-semibold text-slate-800">
-                No exam catalogs found
+                No matching exams found
               </h3>
               <p className="mt-1 text-sm text-slate-500">
-                No catalogs match your filter &ldquo;{searchQuery}&rdquo;. Try another term.
+                Try searching for keywords like &ldquo;NISM&rdquo;, &ldquo;Derivatives&rdquo;, &ldquo;Banking&rdquo;, or &ldquo;SSC&rdquo;.
               </p>
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="mt-4 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 shadow-sm hover:bg-slate-50"
+                className="mt-4 inline-flex items-center rounded-full bg-indigo-50 px-4 py-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-100"
               >
-                Clear filter
+                Reset Search Filters
               </button>
             </div>
           ) : null}
         </section>
       )}
+
+      {/* Why Choose VidyaSetu Feature Matrix */}
+      <section className="rounded-3xl border border-slate-200/80 bg-white/80 p-8 shadow-panel sm:p-10">
+        <div className="max-w-2xl">
+          <span className="text-xs font-bold uppercase tracking-wider text-indigo-600">The VidyaSetu Advantage</span>
+          <h2 className="mt-1 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
+            Engineered for High-Stakes Exam Mastery
+          </h2>
+          <p className="mt-2 text-sm text-slate-600">
+            Everything you need to identify knowledge gaps, build testing stamina, and achieve top percentile ranks.
+          </p>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-5 space-y-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-100 text-indigo-700">
+              <Clock className="h-5 w-5" />
+            </div>
+            <h3 className="font-bold text-slate-900">Exact Exam Timing</h3>
+            <p className="text-xs leading-relaxed text-slate-500">
+              Experience the pressure of real countdown timers and sectional time limits identical to official exams.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-5 space-y-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
+              <BarChart3 className="h-5 w-5" />
+            </div>
+            <h3 className="font-bold text-slate-900">Diagnostic Analytics</h3>
+            <p className="text-xs leading-relaxed text-slate-500">
+              Detailed scorecards highlighting correct, incorrect, negative marks, and speed per question.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-5 space-y-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-700">
+              <ShieldCheck className="h-5 w-5" />
+            </div>
+            <h3 className="font-bold text-slate-900">In-Depth Explanations</h3>
+            <p className="text-xs leading-relaxed text-slate-500">
+              Step-by-step solutions for every problem, complete with financial formulas and conceptual breakdowns.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-100 bg-slate-50/70 p-5 space-y-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-purple-700">
+              <Laptop className="h-5 w-5" />
+            </div>
+            <h3 className="font-bold text-slate-900">Seamless Auto-Save</h3>
+            <p className="text-xs leading-relaxed text-slate-500">
+              Every selected answer is immediately persisted to the server so you never lose your progress during a test.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
-
