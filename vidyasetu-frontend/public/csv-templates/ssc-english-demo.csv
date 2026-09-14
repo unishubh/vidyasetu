@@ -1,0 +1,4 @@
+passage_title,passage_text,question_text,question_type,option_a,option_b,option_c,option_d,correct_answers,marks,negative_marks,solution_text
+Reading Note,"Riya reached the station early, bought a ticket, and waited near platform two for her train.",Why did Riya go to the station?,single_correct,To buy vegetables,To catch a train,To meet a teacher,To watch a match,B,1,0,The passage states that she bought a ticket and waited for her train.
+Reading Note,"Riya reached the station early, bought a ticket, and waited near platform two for her train.",Which details are stated in the passage?,multiple_correct,She reached early,She waited near platform two,She missed the train,She bought a ticket,A|B|D,2,0,The passage mentions early arrival, platform two, and buying a ticket.
+Grammar,,Choose the correctly spelled word.,single_correct,Accomodation,Accommodation,Acomodation,Acommadation,B,1,0,Accommodation is the correct spelling.

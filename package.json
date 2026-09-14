@@ -1,0 +1,7 @@
+{
+  "name": "vidyasetu",
+  "private": true,
+  "scripts": {
+    "dev": "sh ./run-dev.sh"
+  }
+}

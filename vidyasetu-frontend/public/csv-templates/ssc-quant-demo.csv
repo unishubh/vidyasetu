@@ -1,0 +1,4 @@
+passage_title,passage_text,question_text,question_type,option_a,option_b,option_c,option_d,correct_answers,marks,negative_marks,solution_text
+Profit Table,"A shopkeeper buys an item for 400 rupees and sells it for 460 rupees.",What is the profit amount?,single_correct,40,50,60,70,C,1,0.25,Profit is selling price minus cost price which is 460 minus 400.
+Profit Table,"A shopkeeper buys an item for 400 rupees and sells it for 460 rupees.",Which statements are correct?,multiple_correct,Profit is 60 rupees,Loss is 60 rupees,Profit percent is 15,Cost price is 460,A|C,2,0.5,Profit is 60 and profit percent is 60 divided by 400 into 100 which is 15.
+Percentages,,What is 25 percent of 320?,single_correct,60,70,80,90,C,1,0.25,25 percent of 320 is one fourth of 320 which is 80.

@@ -1,0 +1,4 @@
+passage_title,passage_text,question_text,question_type,option_a,option_b,option_c,option_d,correct_answers,marks,negative_marks,solution_text
+Series Pattern,"Consider the sequence 2, 6, 12, 20, 30.",What is the next number in the series?,single_correct,36,40,42,44,C,1,0.25,Differences are 4, 6, 8, 10 so the next difference is 12 and the next term is 42.
+Classification,,Choose the odd one out.,single_correct,Square,Triangle,Circle,Blue,D,1,0.25,Blue is a color while the others are shapes.
+Direction Sense,"Aman walks 3 km north, then 4 km east.",Which statements are correct?,multiple_correct,Aman is northeast of the start point,Aman is 5 km from the start point,Aman ends west of the start point,Aman moved only north,A|B,2,0.5,The right triangle gives a 5 km displacement and the final direction is northeast.

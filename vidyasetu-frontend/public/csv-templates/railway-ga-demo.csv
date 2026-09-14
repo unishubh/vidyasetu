@@ -1,0 +1,4 @@
+passage_title,passage_text,question_text,question_type,option_a,option_b,option_c,option_d,correct_answers,marks,negative_marks,solution_text
+Indian States,,Which city is the capital of Rajasthan?,single_correct,Lucknow,Bhopal,Jaipur,Patna,C,1,0,Jaipur is the capital of Rajasthan.
+Indian States,,Which of the following are Indian states?,multiple_correct,Maharashtra,Nepal,Gujarat,Bhutan,A|C,2,0,Only Maharashtra and Gujarat are states of India in this list.
+Science Basics,,Water boils at what temperature at standard atmospheric pressure?,single_correct,90 C,95 C,100 C,110 C,C,1,0,At standard atmospheric pressure water boils at 100 degrees Celsius.
