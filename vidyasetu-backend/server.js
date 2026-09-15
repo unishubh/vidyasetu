@@ -15,12 +15,12 @@ const PORT = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json({ limit: '2mb' }));
 
+app.use('/health', healthRoutes);
 app.use('/', authRoutes);
 app.use('/', publicRoutes);
 app.use('/admin', adminRoutes);
 app.use('/api/admin', crmRoutes);
 app.use('/', studentRoutes);
-app.use('/health', healthRoutes);
 
 initDB();
 
