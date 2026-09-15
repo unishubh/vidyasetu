@@ -6,6 +6,7 @@ const { authMiddleware } = require('../middleware/authMiddleware');
 const router = express.Router();
 
 router.post('/auth/social', authController.socialLogin);
+router.post('/auth/google', authController.googleLogin);
 router.get('/auth/me', authMiddleware, authController.getCurrentUser);
 
 module.exports = router;

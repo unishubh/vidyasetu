@@ -57,6 +57,90 @@ const signToken = (user) => jwt.sign(
   { expiresIn: '7d' }
 );
 
+const insertUser = database.prepare(`
+  INSERT INTO users (name, email, role, status, created_at, last_login_at)
+  VALUES (?, ?, ?, 'active', ?, ?)
+`);
+
+const verifyGoogleIdToken = async (credential) => {
+  if (!credential) {
+    throw new Error('Google credential token is required');
+  }
+
+  const response = await fetch(
+    `https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(credential)}`
+  );
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.error_description || 'Invalid or expired Google authentication token');
+  }
+
+  const payload = await response.json();
+
+  if (!payload.email) {
+    throw new Error('Google account does not provide an email address');
+  }
+
+  if (payload.email_verified !== 'true' && payload.email_verified !== true) {
+    throw new Error('Google email address has not been verified');
+  }
+
+  return {
+    email: payload.email.toLowerCase().trim(),
+    name: payload.name || payload.given_name || payload.email.split('@')[0],
+    sub: payload.sub,
+    picture: payload.picture || null,
+  };
+};
+
+const googleLogin = async ({ credential }) => {
+  const { email, name, sub, picture } = await verifyGoogleIdToken(credential);
+
+  let user = selectUserByEmail.get(email);
+  const timestamp = new Date().toISOString();
+
+  if (!user) {
+    // Automatically provision new student user on first Google login
+    const result = insertUser.run(
+      name,
+      email,
+      'student',
+      timestamp,
+      timestamp
+    );
+    user = selectUserById.get(Number(result.lastInsertRowid));
+  } else {
+    if (user.status !== 'active') {
+      throw new Error('User account is currently inactive. Please contact administrator.');
+    }
+  }
+
+  const providerLink = selectProviderLink.get(user.id, 'google');
+  if (!providerLink) {
+    insertProviderLink.run(
+      user.id,
+      'google',
+      sub,
+      timestamp
+    );
+  }
+
+  updateUserLastLogin.run(timestamp, user.id);
+  insertLoginEvent.run(user.id, 'google', timestamp);
+
+  return {
+    token: signToken(user),
+    user: {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: normalizeRole(user.role),
+      picture,
+    },
+  };
+};
+
 const socialLogin = ({ provider, email, name }) => {
   if (!provider || !['google', 'facebook'].includes(provider)) {
     throw new Error('Unsupported login provider');
@@ -108,6 +192,8 @@ const getUserById = (userId) => {
 
 module.exports = {
   getUserById,
+  googleLogin,
   JWT_SECRET,
   socialLogin,
+  verifyGoogleIdToken,
 };
